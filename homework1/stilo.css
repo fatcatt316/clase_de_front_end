@@ -1,4 +1,6 @@
 body {
+  font-family: 'Audiowide', cursive;
+  font-size: 20px;
   margin: 0;
   padding: 20px 50px;
 }
@@ -10,6 +12,8 @@ body {
 
 .robot {
   display: inline-block;
+  position: fixed;
+  bottom: 0;
 }
 
 .antenna {
