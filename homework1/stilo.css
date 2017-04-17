@@ -32,7 +32,7 @@ body {
   padding: 0 15px;
   color: #770303;
   animation-name: glowy;
-  animation-duration: 4s;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
@@ -65,4 +65,28 @@ body {
   background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
+}
+
+.ol-city {
+  mix-blend-mode: luminosity;
+  background: url('http://3.bp.blogspot.com/-VXv316yOrro/Vepu0PK2mII/AAAAAAABT7k/Ue02R5hXAuI/s1600/aftermath-image_883903_1763053.jpg');
+  background-size: cover;
+}
+
+.ol-city--smoke {
+  mix-blend-mode: unset;
+  background: url('https://www.filterforge.com/filters/219.jpg'), url('http://3.bp.blogspot.com/-VXv316yOrro/Vepu0PK2mII/AAAAAAABT7k/Ue02R5hXAuI/s1600/aftermath-image_883903_1763053.jpg') no-repeat;
+  background-size: cover, cover;
+  background-blend-mode: lighten, normal;
+  animation: bgPosAnimation 10s linear infinite;
+}
+
+@keyframes bgPosAnimation {
+  from {
+    background-position: 0 0, center center;
+  }
+
+  to {
+    background-position: -1080px 0, center center;
+  }
 }
