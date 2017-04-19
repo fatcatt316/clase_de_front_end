@@ -1,0 +1,17 @@
+html {
+  font-size: 24px;
+}
+
+body {
+  font-family: 'Audiowide', cursive;
+  /*margin: 0;
+  padding: 0;*/
+}
+
+@media(max-width: 640px) {
+  font-size: 30px;
+
+  body {
+    font-family: 'Audiowide', cursive;
+  }
+}
