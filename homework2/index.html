@@ -1,16 +1,71 @@
 <html>
   <head>
-    <title>🔮Futuristic Formz, Inc.</title>
-    <link rel='stylesheet' href='stilo.css'>
+    <title>🔮Futuristic Formz, Ltd.</title>
+
     <link rel='stylesheet' href='foundation.min.css'>
-    <!-- <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'> -->
+    <link rel='stylesheet' href='stilo.css'>
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
 
     <meta charset='utf-8' />
 
     <script src='https://code.jquery.com/jquery-3.2.0.min.js'></script>
-    <script src='main.js'></script>
+    <script src='wrasslin.js'></script>
   </head>
   <body>
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Wrassler Application Form</h1>
+      </div>
+    </div>
+    <form action="#">
+      <div class="row">
+        <div class="large-8 columns">
+          <label>Enscribe your wrasslin' name</label>
+          <input type="text" name="wrassler-name" placeholder="Make sure you can picture it on the championship belt one day..."/>
+        </div>
+        <div class="large-4 columns">
+          <label>After a win, celebrate with a high...</label>
+          <input type="text" name="only-five" placeholder="Hint: cincos"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-4 columns">
+          <label>Do you have what it takes to be the baddest wrassler?</label>
+          <select name="have-what-it-takes">
+            <option value="" disabled selected hidden>Choose wisely...</option>
+            <option value="you dang right">💪🏼You dang right</option>
+            <option value="indubitably" />🙇🏻Indubitably</option>
+            <option value="oh hell yeah" />☠️ OH HELL YEAH</option>
+            <option value="shrug" />¯\_(ツ)_/¯</option>
+            <option value="frogs" />🐸</option>
+          </select>
+
+          <label>When can you start?</label>
+          <input type="date" name="start-date">
+        </div>
+
+        <div class="large-4 columns">
+          <label>🎵 What Genre of Entrance Music? 🎵</label>
+          <label><input type="radio" name="entrance-music" value="kpop" />K-Pop</label>
+          <label><input type="radio" name="entrance-music" value="hyphy" />Hyphy</label>
+          <label><input type="radio" name="entrance-music" value="psychedelic folk" />Psychedelic Folk</label>
+          <label><input type="radio" name="entrance-music" value="throat" />Throat Singing</label>
+        </div>
+
+        <div class="large-4 columns">
+          <label>Choose your spandex color: <input type="color" name="spandex-color"></label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <input type="submit" class="button round" value="Submit">
+        </div>
+      </div>
+    </form>
+
+
     <h1>Instructions</h1>
 
     <p>Build a form that will do the following when submitted:</p>
@@ -23,13 +78,6 @@
       </li>
     </ul>
 
-    <p>This form should have at least:</p>
-    <ul>
-      <li>One text field</li>
-      <li>One select field</li>
-      <li>Two other input fields (any type you want)</li>
-    </ul>
-
     <p>Validation rules:</p>
     <ul>
       <li>All 4 fields are required.</li>
@@ -37,12 +85,6 @@
       <li>For your select field, nothing else except a value of "frogs" will be accepted.</li>
     </ul>
 
-    <p>Your page should:</p>
-    <ul>
-      <li>use CSS to style the contents</li>
-      <li>use a grid system (feel free to use Bootstrap, or Foundation if you want)</li>
-      <li>use at least one media query (that you write yourself)</li>
-    </ul>
   </body>
 </html>
 
