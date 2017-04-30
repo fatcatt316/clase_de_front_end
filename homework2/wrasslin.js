@@ -23,7 +23,7 @@ $(function() {
   // For your select field, nothing else except a value of "frogs" will be accepted.
   var validateSelect = function(errors = []) {
     if ($('#baddest-dropdown').val() !== "frogs") {
-      errors.push('Wrong choice for "Do you have what it takes"');
+      errors.push('💩 Wrong choice for "Do you have what it takes"');
     }
     return errors;
   }
@@ -31,7 +31,7 @@ $(function() {
   // For your text field, nothing else except a value of 5 will be accepted.
   var validateFive = function(errors = []) {
     if ($form.find('input[name="only-five"]').val() !== '5') {
-      errors.push('Wrong value for "Celebrate with a high..."');
+      errors.push('💩 Wrong answer for "Celebrate with a high..."');
     }
     return errors;
   }
@@ -42,7 +42,7 @@ $(function() {
   */
   var validateAllAnswered = function(errors = []) {
     const inputFields = {
-      'input[name=wrassler-name]': "Wrasslin' Name",
+      'input[name=wrassler-name]': "Wrasslin' Name ",
       'input[name=only-five]': 'Celebrate with a high...',
       'input[name=start-date]': 'Start date',
       'input[name=entrance-music]:checked': 'Entrance music',
@@ -51,7 +51,7 @@ $(function() {
     }
     $.each(inputFields, function(finderStr, label){
       if (!$(finderStr).val()){
-        errors.push('You simply must answer "' + label + '"');
+        errors.push('💩 You simply must answer "' + label + '"');
       }
     });
     return errors;
