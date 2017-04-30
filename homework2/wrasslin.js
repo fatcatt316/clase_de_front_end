@@ -11,7 +11,7 @@ $(function() {
     var errors = [];
     errors = validateSelect(errors);
     errors = validateFive(errors);
-    // errors = validateAllAnswered(errors);
+    errors = validateAllAnswered(errors);
 
     if (errors.length) {
       alert("OH NO! Fix these mistakes: \n\n" + errors.join("\n"));
@@ -23,7 +23,7 @@ $(function() {
   // For your select field, nothing else except a value of "frogs" will be accepted.
   var validateSelect = function(errors = []) {
     if ($('#baddest-dropdown').val() !== "frogs") {
-      errors.push('Wrong choice for "Do you have what it takes"!');
+      errors.push('Wrong choice for "Do you have what it takes"');
     }
     return errors;
   }
@@ -41,14 +41,19 @@ $(function() {
   * So I made them all required.
   */
   var validateAllAnswered = function(errors = []) {
-    $form.find('input').each( )
-
-    $.each($form.find('input'), function(input){
-      if (input.value === "" || input.value === null) {
-        errors.push("Cannot leave " + input.name + " blank.")
+    const inputFields = {
+      'input[name=wrassler-name]': "Wrasslin' Name",
+      'input[name=only-five]': 'Celebrate with a high...',
+      'input[name=start-date]': 'Start date',
+      'input[name=entrance-music]:checked': 'Entrance music',
+      'input[name=spandex-color]': 'Spandex color',
+      '#baddest-dropdown': 'Do you have what it takes?'
+    }
+    $.each(inputFields, function(finderStr, label){
+      if (!$(finderStr).val()){
+        errors.push('You simply must answer "' + label + '"');
       }
     });
-
     return errors;
   }
 
