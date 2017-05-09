@@ -1,0 +1,16 @@
+body {
+  padding: 15px 25px;
+}
+
+.container {
+  border: 3px solid green;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    font-family: 'Audiowide', cursive;
+  }
+}
+

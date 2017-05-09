@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title></title>
+
+    <link rel='stylesheet' href='foundation.min.css'>
+    <link rel='stylesheet' href='so_stylish.css'>
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+
+    <meta charset='utf-8' />
+
+    <script src='https://code.jquery.com/jquery-3.2.0.min.js'></script>
+    <script src='yavascript.js'></script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='large-3 columns'>
+          <form action='#'>
+            <input type='submit' class='button round ajax-it-up' value='Do it!'>
+          </form>
+        </div>
+        <div class='large-9 columns'>
+          <h2>Rezults</h2>
+          <div id='resultz'>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <h1>Caveat: test your API first to make sure it supports CORS!</h1>
+
+    <p>Here's a few examples of APIs that DO support CORS:</p>
+
+    <ul>
+      <li><a href='https://deckofcardsapi.com/' target='_blank'>deckofcardsapi.com</a></li>
+      <li><a href='https://jsonplaceholder.typicode.com/' target='_blank'>jsonplaceholder.typicode.com</a></li>
+      <li><a href='https://developers.google.com/maps/documentation/javascript/' target='_blank'>developers.google.com/maps/documentation/javascript</a></li>
+    </ul>
+
+    <p>If an API does not support CORS, you'll see an error message that looks something like this in the JavaScript console: " No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin '{your-site}' is therefore not allowed access."</p>
+
+    <p>Create page that has a single button on it. When I click the button, the following should happen:</p>
+
+    <ul>
+      <li>content should be loaded via AJAX an API of your choice.</li>
+      <li>some (or all, up to you) of the content loaded from the API should be rendered onto the page with JavaScript.</li>
+      <li>your page should be styled with CSS</li>
+      <li>you should use at least one CSS transition or animation on your page.</li>
+    </ul>
+
+  </body>
+</html>
