@@ -2,6 +2,10 @@ body {
   padding: 15px 25px;
 }
 
+.ajax-it-up {
+  font-size: 2rem;
+}
+
 .container {
   border: 3px solid green;
   border-radius: 20px;
@@ -13,4 +17,3 @@ body {
     font-family: 'Audiowide', cursive;
   }
 }
-
