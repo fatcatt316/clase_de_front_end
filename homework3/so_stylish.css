@@ -6,14 +6,33 @@ body {
   font-size: 2rem;
 }
 
+.ajax-it-up:hover {
+  -webkit-transform: rotateZ(-15deg);
+  -ms-transform: rotateZ(-15deg);
+  transform: rotateZ(-15deg);
+  transition: 500ms linear all;
+}
+
 .container {
   border: 3px solid green;
   border-radius: 20px;
   padding: 10px;
 }
 
-@media (max-width: 1000px) {
-  body {
-    font-family: 'Audiowide', cursive;
+@media (max-width: 800px) {
+  h2 {
+    text-align: center;
+  }
+  .ajax-it-up {
+    font-size: 4rem;
+    width: 100%;
+  }
+  .ajax-it-up:hover {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+  .container {
+    text-align: center;
   }
 }
