@@ -3,8 +3,35 @@
   "version": "0.1.0",
   "description": "",
   "main": "ecmascript.js",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.24.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "node-sass": "^4.5.0",
+    "nodemon": "^1.11.0",
+    "serve": "^5.0.3",
+    "watchify": "^3.9.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_PATH=$NODE_PATH:$PWD/ watchify src/ecmascript/ecmascript.js -o public/ecmascript/ecmascript.bundle.js -dv & serve public & npm run watch-css",
+    "build-css": "node-sass --include-path src/scss src/scss/stilo.scss public/css/stilo.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "latest"
+          ]
+        }
+      ]
+    ]
   },
   "author": "Joe Peck",
   "license": "ISC"
