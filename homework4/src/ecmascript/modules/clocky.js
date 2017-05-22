@@ -5,23 +5,48 @@ const clicketyClock = {
     return ("0" + number).slice(-2);
   },
 
-  updateTime: function() {
-    // Get the local time using JS
-    const date = new Date;
+  weekdayName(date) {
+    const weekdays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ]
+
+    return weekdays[date.getDay()];
+  },
+
+  updateTime(date) {
     const seconds = this.zeroPad(date.getSeconds());
     const minutes = this.zeroPad(date.getMinutes());
     const hours = this.zeroPad(date.getHours());
 
-    const digits = $('.clock .digits')
+    const timeSquare = $('.chrono-cube .time')
 
-    digits.html(hours + ":" + minutes + ":" + seconds);
+    timeSquare.html(hours + ":" + minutes + ":" + seconds);
+  },
+
+  updateWeekday(date) {
+    const weekdaySquare = $('.chrono-cube .weekday')
+
+    weekdaySquare.html(this.weekdayName(date));
+  },
+
+  updateChronoCube: function() {
+    const date = new Date; // Get local time using JS
+    this.updateTime(date);
+    this.updateWeekday(date);
+
     // TODO: update AM/PM
   },
 
   init: function() {
     $('#what-time-it-be').on('click', (e) => {
       e.preventDefault();
-      this.updateTime();
+      this.updateChronoCube();
     });
   }
 };
