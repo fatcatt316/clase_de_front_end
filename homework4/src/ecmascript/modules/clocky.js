@@ -6,23 +6,25 @@ const clicketyClock = {
   },
 
   weekdayName(date) {
-    const weekdays = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ]
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+      "Friday", "Saturday"];
 
     return weekdays[date.getDay()];
+  },
+
+  nonMilitaryHours(hours) {
+    if (hours > 12) {
+      hours -= 12;
+    } else if (hours === 0) {
+      hours = 12;
+    }
+    return hours;
   },
 
   updateTime(date) {
     const seconds = this.zeroPad(date.getSeconds());
     const minutes = this.zeroPad(date.getMinutes());
-    const hours = this.zeroPad(date.getHours());
+    const hours = this.zeroPad(this.nonMilitaryHours(date.getHours()));
 
     const timeSquare = $('.chrono-cube .time')
 
@@ -35,12 +37,25 @@ const clicketyClock = {
     weekdaySquare.html(this.weekdayName(date));
   },
 
-  updateChronoCube: function() {
-    const date = new Date; // Get local time using JS
-    this.updateTime(date);
-    this.updateWeekday(date);
+  updateAmPm(date) {
+    const amPm = (date.getHours() > 11 ? 'PM' : 'AM');
+    const amPmSquare = $('.chrono-cube .am-pm')
 
-    // TODO: update AM/PM
+    amPmSquare.html(amPm);
+  },
+
+  updateDate(date) {
+    const dateSquare = $('.chrono-cube .date')
+
+    dateSquare.html(date.getFullYear() + '-' + this.zeroPad(date.getMonth()) + '-' + this.zeroPad(date.getDate()));
+  },
+
+  updateChronoCube: function() {
+    const date = new Date;
+    this.updateTime(date);
+    this.updateAmPm(date);
+    this.updateWeekday(date);
+    this.updateDate(date);
   },
 
   init: function() {
