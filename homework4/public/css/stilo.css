@@ -12,11 +12,12 @@ button {
   transform-style: preserve-3d; }
   .chrono-cube div {
     position: absolute;
+    font-size: 2em;
+    font-family: 'Modak', cursive;
     width: 200px;
     height: 200px;
     border: 2px solid #2e982c;
     box-shadow: 0px 0px 120px #2e982c inset;
-    display: flex;
     display: flex;
     align-items: center;
     justify-content: center; }

@@ -17,14 +17,15 @@ button {
 
   div {
     position: absolute;
+    font-size: 2em;
+    font-family: 'Modak', cursive;
     width: 200px;
     height: 200px;
     border: 2px solid $clock-color;
     box-shadow: 0px 0px 120px $clock-color inset;
     display: flex;
-    display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
   }
 }
 
