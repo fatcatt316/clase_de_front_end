@@ -1,3 +1,57 @@
-body {
-  margin: 0;
-  padding: 0; }
+button {
+  font-size: 1em; }
+
+.cube-wrap {
+  padding: 80px 0 0 200px;
+  perspective: 800px;
+  perspective-origin: 50% 100px; }
+
+.chrono-cube {
+  position: relative;
+  width: 200px;
+  transform-style: preserve-3d; }
+  .chrono-cube div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #2e982c;
+    box-shadow: 0px 0px 120px #2e982c inset;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.back {
+  transform: translateZ(-100px) rotateY(180deg); }
+
+.right {
+  transform: rotateY(-270deg) translateX(100px);
+  transform-origin: top right; }
+
+.left {
+  transform: rotateY(270deg) translateX(-100px);
+  transform-origin: center left; }
+
+.top {
+  transform: rotateX(-90deg) translateY(-100px);
+  transform-origin: top center; }
+
+.bottom {
+  transform: rotateX(90deg) translateY(100px);
+  transform-origin: bottom center; }
+
+.front {
+  transform: translateZ(100px); }
+
+@keyframes spin {
+  from {
+    transform: rotateY(0); }
+  to {
+    transform: rotateY(360deg); } }
+
+.chrono-cube {
+  animation: spin 10s infinite linear; }
+
+@media (max-width: 800px) {
+  button {
+    font-size: 3em; } }
