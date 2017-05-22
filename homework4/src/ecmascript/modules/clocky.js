@@ -47,7 +47,7 @@ const clicketyClock = {
   updateDate(date) {
     const dateSquare = $('.chrono-cube .date')
 
-    dateSquare.html(date.getFullYear() + '-' + this.zeroPad(date.getMonth()) + '-' + this.zeroPad(date.getDate()));
+    dateSquare.html(date.getFullYear() + '-' + this.zeroPad(date.getMonth() + 1) + '-' + this.zeroPad(date.getDate()));
   },
 
   updateChronoCube: function() {
