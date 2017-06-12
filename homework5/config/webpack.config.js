@@ -22,7 +22,7 @@ const webpackConfig = {
       }
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract({
+      use: ExtractTextPlugin.extract({
         loader: 'css-loader?importLoaders=1',
       }),
     }, {
