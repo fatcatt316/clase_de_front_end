@@ -1,0 +1,26 @@
+{
+  "name": "joke-database-dot-gov",
+  "version": "0.1.0",
+  "author": "Dr. Joe Peck, MD",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-latest": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "start": "webpack --config=config/webpack.config.js",
+    "lint": "eslint src/js"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
