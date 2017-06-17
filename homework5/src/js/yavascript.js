@@ -20,8 +20,12 @@ $(() => {
 
   $('#add').click(function(e){
     e.preventDefault();
-    Storage.add($input.val(), inputName);
-    renderJoke($input.val());
+    let joke = $input.val();
+    $input.val('');
+    if (joke != '') {
+      Storage.add(joke, inputName);
+      renderJoke(joke);
+    }
   });
 
   $('#erase').click(function(){

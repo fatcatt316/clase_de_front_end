@@ -102,8 +102,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   (0, _jquery2.default)('#add').click(function (e) {
     e.preventDefault();
-    _storage2.default.add($input.val(), inputName);
-    renderJoke($input.val());
+    var joke = $input.val();
+    $input.val('');
+    if (joke != '') {
+      _storage2.default.add(joke, inputName);
+      renderJoke(joke);
+    }
   });
 
   (0, _jquery2.default)('#erase').click(function () {
