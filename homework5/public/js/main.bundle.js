@@ -84,17 +84,34 @@ var _storage2 = _interopRequireDefault(_storage);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(function () {
-  var inputName = 'main-input';
-  var existingValue = _storage2.default.load(inputName);
+  var inputName = 'joke-input';
   var $input = (0, _jquery2.default)('input[name="' + inputName + '"]');
+  var $jokeForm = (0, _jquery2.default)('form');
 
-  if (existingValue) {
-    $input.val(existingValue);
-  }
+  var renderJoke = function renderJoke(joke) {
+    (0, _jquery2.default)('.them-jokes').append('<li>' + joke + '</li>');
+  };
 
-  $input.on('keyup', function (e) {
-    _storage2.default.save(e.target.value, e.target.name);
+  var populateJokes = function populateJokes() {
+    var jokes = _storage2.default.load(inputName);
+
+    jokes.forEach(function (joke) {
+      renderJoke(joke);
+    });
+  };
+
+  (0, _jquery2.default)('#add').click(function (e) {
+    e.preventDefault();
+    _storage2.default.add($input.val(), inputName);
+    renderJoke($input.val());
   });
+
+  (0, _jquery2.default)('#erase').click(function () {
+    _storage2.default.erase(inputName);
+    (0, _jquery2.default)('.them-jokes').empty();
+  });
+
+  populateJokes();
 });
 
 /***/ }),
@@ -123,8 +140,16 @@ var Storage = {
   save: function save(value, key) {
     window.localStorage.setItem(storageKeyName(key), value);
   },
+  add: function add(value, key) {
+    var values = this.load(key);
+    values.push(value);
+    this.save(JSON.stringify(values), key);
+  },
   load: function load(key) {
-    return window.localStorage.getItem(storageKeyName(key));
+    return JSON.parse(window.localStorage.getItem(storageKeyName(key))) || [];
+  },
+  erase: function erase(key) {
+    window.localStorage.removeItem(storageKeyName(key));
   }
 };
 

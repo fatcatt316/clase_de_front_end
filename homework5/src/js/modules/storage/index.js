@@ -8,8 +8,16 @@ const Storage = {
   save(value, key) {
     window.localStorage.setItem(storageKeyName(key), value);
   },
+  add(value, key) {
+    let values = this.load(key);
+    values.push(value);
+    this.save(JSON.stringify(values), key);
+  },
   load(key) {
-    return window.localStorage.getItem(storageKeyName(key));
+    return JSON.parse(window.localStorage.getItem(storageKeyName(key))) || [];
+  },
+  erase(key) {
+    window.localStorage.removeItem(storageKeyName(key));
   },
 };
 

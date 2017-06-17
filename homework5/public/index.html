@@ -2,9 +2,24 @@
 <html>
   <head>
     <title>JokeDatabase.gov</title>
-    <link rel="stylesheet" type="text/css" href="css/estilos.bundle.css">
+    <link rel='stylesheet' type='text/css' href='css/main.bundle.css'>
   </head>
   <body>
+    <h1>JokeDatabase.gov</h1>
+    <h3>Official Joke Database of the U.S.A.</h3>
+
+    <div class='app'>
+      <form>
+        <input type='text' name='joke-input' placeholder='Use your computer key-board to enscribe your joke here...' class='joke-input'>
+        <input id='add' type='submit' value='Store Joke for Future Generations'>
+        <input id='erase' type='button' value='Erase Jokes Forever'>
+      </form>
+    </div>
+
+    <ul class='them-jokes'>
+    </ul>
+
+    <hr />
     <p>Build an app that does the following:</p>
 
     <ul>
@@ -15,6 +30,6 @@
       <li>Uses webpack to bundle your JavaScript.</li>
     </ul>
 
-    <script src="js/yavascript.bundle.js"></script>
+    <script src='js/main.bundle.js'></script>
   </body>
 </html>
