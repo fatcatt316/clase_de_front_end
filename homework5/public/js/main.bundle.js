@@ -87,9 +87,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   var inputName = 'joke-input';
   var $input = (0, _jquery2.default)('input[name="' + inputName + '"]');
   var $jokeForm = (0, _jquery2.default)('form');
+  var sampleJokes = ['Yo mama so fat I swerved to miss her and ran out of gas.', 'Yo mama so ugly, her portraits hang themselves.', 'Yo mama so unfamiliar with the gym she calls it James.', 'Yo mama so fat her memory foam forgot.', 'Yo mama so stupid, she thought LGBT was a sandwich.', 'Yo mama so fat her patronus is a cake.', 'Yo mama so fat, the Sorting Hat put her in the House of Pancakes.', 'Yo mama so old, she knew Burger King when he was a prince.', 'Yo mama so fat when she goes camping the bears hide their food.', 'Yo mama so poor the ducks throw bread at her.'];
 
   var renderJoke = function renderJoke(joke) {
     (0, _jquery2.default)('.them-jokes').append('<li>' + joke + '</li>');
+  };
+
+  var addJoke = function addJoke(joke) {
+    _storage2.default.add(joke, inputName);
+    renderJoke(joke);
   };
 
   var populateJokes = function populateJokes() {
@@ -105,9 +111,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var joke = $input.val();
     $input.val('');
     if (joke != '') {
-      _storage2.default.add(joke, inputName);
-      renderJoke(joke);
+      addJoke(joke);
     }
+  });
+
+  (0, _jquery2.default)('#add-sample-joke').click(function (e) {
+    var joke = sampleJokes[Math.floor(Math.random() * sampleJokes.length)];
+    addJoke(joke);
   });
 
   (0, _jquery2.default)('#erase').click(function () {
