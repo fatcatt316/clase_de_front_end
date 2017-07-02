@@ -26,6 +26,9 @@ if (isDeveloping) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+  app.get('/requirements', (req, res) => {
+    res.sendFile(path.join(__dirname, '../app/requirements.html'));
+  });
   app.get('*', (req, res) => {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '/../dist/index.html')));
     res.end();

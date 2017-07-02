@@ -52,39 +52,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
-/* 2. this 1fr will take up the rest of the free space after the 40% */
-/*
-.container {
-  display: grid;
-  grid-template-columns: 20% 20% 1fr;
-}
-*/
-
-
-/* 3. You can name your columns */
-/*.container {
-  display: grid;
-  grid-template-columns: [sidebar] 1fr [content] 8fr;
-}
-*/
-
-/* 4. You can set custom rows */
-/*.container {
-  display: grid;
-  grid-template-columns: [sidebar] 1fr [content] 8fr;
-  grid-template-rows: 200px auto 100px;
-}*/
-
-
-/* 5. Child properties */
-/*.container {
-  display: grid;
-  grid-template-columns: [sidebarcol] 1fr [contentcol] 8fr;
-}
-.container__item--2 {
-  grid-column-start: sidebarcol;
-  grid-column-end: contentcol;
-  grid-row-start: 1;
-  grid-row-end: 4;
-}*/
