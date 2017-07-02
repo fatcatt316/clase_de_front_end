@@ -1,5 +1,90 @@
+@import '_vars';
+
 body {
-  background: #295618;
-  color: #FFF;
-  font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', sans-serif;
+  background: $blackish;
+  color: $old-green;
+  font-size: 1.4rem;
+  font-family: 'VT323', monospace;
 }
+
+h1 {
+  margin: 0px;
+}
+
+a {
+  color: cyan;
+}
+
+.logo{
+  .head {
+    fill: $amber;
+  }
+  .suit {
+    fill: $dark-amber;
+  }
+  .magnifying-glass {
+    fill: green;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: [sidebar] 1fr [form] 1fr [results] 2fr;
+}
+
+.container__item {
+  display: inline-block;
+  border: 5px solid $dark-amber;
+  margin-left: -5px;
+  margin-bottom: -5px;
+  padding: 10px;
+  text-align: center;
+  color: $old-green;
+}
+
+footer {
+  text-align: center;
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2. this 1fr will take up the rest of the free space after the 40% */
+/*
+.container {
+  display: grid;
+  grid-template-columns: 20% 20% 1fr;
+}
+*/
+
+
+/* 3. You can name your columns */
+/*.container {
+  display: grid;
+  grid-template-columns: [sidebar] 1fr [content] 8fr;
+}
+*/
+
+/* 4. You can set custom rows */
+/*.container {
+  display: grid;
+  grid-template-columns: [sidebar] 1fr [content] 8fr;
+  grid-template-rows: 200px auto 100px;
+}*/
+
+
+/* 5. Child properties */
+/*.container {
+  display: grid;
+  grid-template-columns: [sidebarcol] 1fr [contentcol] 8fr;
+}
+.container__item--2 {
+  grid-column-start: sidebarcol;
+  grid-column-end: contentcol;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}*/
