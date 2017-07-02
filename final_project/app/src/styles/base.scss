@@ -15,6 +15,29 @@ a {
   color: cyan;
 }
 
+label {
+  text-align: left;
+  display: block;;
+}
+
+input {
+  width: 100%;
+  font-size: 24px;
+  font-family: 'VT323', monospace;
+  border: 5px solid $dark-amber;
+  background-color: $blackish;
+  color: $old-green;
+}
+
+input:hover {
+  border-color: cyan;
+}
+
+input[type="submit"]:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
 .logo{
   .head {
     fill: $amber;
@@ -37,7 +60,7 @@ a {
   border: 5px solid $dark-amber;
   margin-left: -5px;
   margin-bottom: -5px;
-  padding: 10px;
+  padding: 10px 40px;
   text-align: center;
   color: $old-green;
 }
@@ -47,8 +70,19 @@ footer {
   clear: both;
 }
 
+@media (max-width: 1005px) {
+  .container {
+    display: grid;
+    grid-template-columns: [sidebar] 0.5fr [form] 1fr [results] 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;
+  }
+
+  .container__item--1 {
+    height: 100px;
   }
 }
