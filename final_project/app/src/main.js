@@ -48,8 +48,7 @@ $(function(){
     $.ajax({
       url: githubAPIUrl
     }).then((resp) => {
-      console.log(resp);
-      resultDiv.html(''); // Clear previous results
+      resultDiv.html('<h2>GITHUB</h2>'); // Clear previous results
       resultDiv.append('<img src="'+ resp.avatar_url +'" class="github-avatar" />');
 
       const anchorText = (resp.name ? resp.name : "Github URL");
