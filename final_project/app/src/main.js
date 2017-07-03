@@ -8,12 +8,35 @@ $(function(){
     return '<a href="'+ url +'" target="_blank">'+ anchor +'</a>';
   }
 
+  var populateGoogleInfo = function(name, city) {
+    let googleUrl;
+    const resultDiv = $('#google-results');
+
+    if (name) {
+      googleUrl = 'https://www.google.com/search?q="' + encodeURI('"'+ name + '"');
+      if (city) {
+        googleUrl = googleUrl + '+' + encodeURI(city);
+      }
+    } else {
+      return $('#google-results').html('NO RESULTS');
+    }
+
+    $.ajax({
+      url: googleUrl
+    }).then((resp) => {
+      debugger;
+      console.log(resp);
+    }).catch((err) => {
+      resultDiv.html(err.statusText);
+    });
+  }
+
   var populateGithubInfo = function(githubName) {
     let githubAPIUrl;
-    const results = $('#github-results');
+    const resultDiv = $('#github-results');
 
     if (githubName) {
-      githubAPIUrl = 'https://api.github.com/users/' + githubName
+      githubAPIUrl = 'https://api.github.com/users/' + githubName;
     // TODO: If provided name, search for that user
     // } else if (name) {
     //   githubAPIUrl = 'https://api.github.com/users/' + githubName
@@ -26,21 +49,27 @@ $(function(){
       url: githubAPIUrl
     }).then((resp) => {
       console.log(resp);
-      results.html(''); // Clear previous results
-      results.append('<img src="'+ resp.avatar_url +'" class="github-avatar" />');
+      resultDiv.html(''); // Clear previous results
+      resultDiv.append('<img src="'+ resp.avatar_url +'" class="github-avatar" />');
 
       const anchorText = (resp.name ? resp.name : "Github URL");
-      results.append('<p>'+ link(anchorText, resp.html_url) +'</p>');
+      resultDiv.append('<p>'+ link(anchorText, resp.html_url) +'</p>');
 
+      resultDiv.append('<p>Github User since '+ resp.created_at +'</p>');
+
+      if (resp.company) {
+        resultDiv.append('<p>Company: '+ resp.company +'</p>');
+      }
       if (resp.location) {
-        results.append('<p>'+ resp.location +'</p>');
+        resultDiv.append('<p>'+ resp.location +'</p>');
       }
       if(resp.blog) {
-        results.append('<p>'+ link("Personal website", resp.blog) +'</p>');
+        resultDiv.append('<p>'+ link("Personal website", resp.blog) +'</p>');
       }
+      resultDiv.append('<p>'+ resp.followers +' Github Followers</p>');
+      resultDiv.append('<p>Following '+ resp.following +' Github users</p>');
     }).catch((err) => {
-      err.statusText
-      results.html(err.statusText);
+      resultDiv.html(err.statusText);
     });
   };
 
@@ -49,33 +78,10 @@ $(function(){
     const city = $('input[name="city"]').val();
     const githubName = $('input[name="github-name"]').val();
     populateGithubInfo(githubName);
+    // populateGoogleInfo(name, city);
 
     e.preventDefault();
   });
 
-
-
-
-
   $("#name").focus();
 });
-
-
-// $('#add').click(function(e){
-//   e.preventDefault();
-//   let joke = $input.val();
-//   $input.val('');
-//   if (joke != '') {
-//     addJoke(joke);
-//   }
-// });
-
-// $('#add-sample-joke').click(function(e){
-//   const joke = sampleJokes[Math.floor(Math.random()*sampleJokes.length)]
-//   addJoke(joke);
-// });
-
-// $('#erase').click(function(){
-//   Storage.erase(inputName);
-//   $('.them-jokes').empty();
-// });
