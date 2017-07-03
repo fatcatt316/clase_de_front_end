@@ -40,6 +40,27 @@ if (isDeveloping) {
   });
 }
 
+// app.post('/api/our_custom_endpoint', function(req, res) {
+//   var url = `http://numbersapi.com/${req.body.number}`
+//   var options = {
+//     method: 'GET',
+//     uri: url
+//   };
+//   // Hit API using request-promise library
+//   rp(options)
+//     .then(function(resp) {
+//       res.send({
+//         resp: resp
+//       });
+//     })
+//     .catch(function(err) {
+//       console.error(err);
+//       res.send({
+//         resp: err
+//       });
+//     });
+// });
+
 app.listen(port, (err) => {
   if (err) {
     // eslint-disable-next-line no-console
