@@ -3,33 +3,35 @@ import $ from 'jquery';
 
 console.info('Hey! Quit looking at the console.');
 
+var millisecondsToShow = 800;
+
 $(function(){
   var link = function(anchor, url) {
     return '<a href="'+ url +'" target="_blank">'+ anchor +'</a>';
   }
 
-  var populateGoogleInfo = function(name, city) {
-    let googleUrl;
-    const resultDiv = $('#google-results');
+  // var populateGoogleInfo = function(name, city) {
+  //   const resultDiv = $('#google-results');
+  //   alert("ABOUT TO HIT LOCAL SERVER");
 
-    if (name) {
-      googleUrl = 'https://www.google.com/search?q="' + encodeURI('"'+ name + '"');
-      if (city) {
-        googleUrl = googleUrl + '+' + encodeURI(city);
-      }
-    } else {
-      return $('#google-results').html('NO RESULTS');
-    }
-
-    $.ajax({
-      url: googleUrl
-    }).then((resp) => {
-      debugger;
-      console.log(resp);
-    }).catch((err) => {
-      resultDiv.html(err.statusText);
-    });
-  }
+  //   $.ajax({
+  //     url: `/google-results?city=${city}&name=${name}`,
+  //     // data: {
+  //     //   city: city,
+  //     //   name: name
+  //     // },
+  //     // headers: {
+  //     //   'Content-Type': 'application/json',
+  //     // }
+  //   }).then((resp) => {
+  //     console.log("GOT RESPONSE...");
+  //     console.log(resp);
+  //   }).catch((err) => {
+  //     console.log("ERROR!!!!!");
+  //     console.log(err);
+  //     resultDiv.html(err.statusText);
+  //   });
+  // }
 
   var populateGithubInfo = function(githubName) {
     let githubAPIUrl;
@@ -42,13 +44,14 @@ $(function(){
     //   githubAPIUrl = 'https://api.github.com/users/' + githubName
     // https://developer.github.com/v3/search/#search-users
     } else {
-      return $('#github-results').html('NO RESULTS');
+      return resultDiv.html('NO RESULTS');
     }
+    resultDiv.hide();
 
     $.ajax({
       url: githubAPIUrl
     }).then((resp) => {
-      resultDiv.html('<h2>GITHUB</h2>'); // Clear previous results
+      resultDiv.html(''); // Clear previous results
       resultDiv.append('<img src="'+ resp.avatar_url +'" class="github-avatar" />');
 
       const anchorText = (resp.name ? resp.name : "Github URL");
@@ -70,6 +73,7 @@ $(function(){
     }).catch((err) => {
       resultDiv.html(err.statusText);
     });
+    resultDiv.show(millisecondsToShow);
   };
 
   $("form").submit(function(e) {
