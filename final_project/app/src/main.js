@@ -77,8 +77,8 @@ $(function(){
   };
 
   $("form").submit(function(e) {
-    const name = $('input[name="name"]').val();
-    const city = $('input[name="city"]').val();
+    // const name = $('input[name="name"]').val();
+    // const city = $('input[name="city"]').val();
     const githubName = $('input[name="github-name"]').val();
     populateGithubInfo(githubName);
     // populateGoogleInfo(name, city);
