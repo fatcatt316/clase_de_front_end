@@ -4,6 +4,7 @@ import $ from 'jquery';
 console.info('Hey! Quit looking at the console.');
 
 var millisecondsToShow = 800;
+let githubName;
 
 $(function(){
   var link = function(anchor, url) {
@@ -76,14 +77,20 @@ $(function(){
     resultDiv.show(millisecondsToShow);
   };
 
-  $("form").submit(function(e) {
-    // const name = $('input[name="name"]').val();
-    // const city = $('input[name="city"]').val();
-    const githubName = $('input[name="github-name"]').val();
-    populateGithubInfo(githubName);
-    // populateGoogleInfo(name, city);
+  var isValidForm = function() {
+    githubName = $('input[name="github-name"]').val();
+    if (!githubName) {
+      alert('Woah! Looks like you forgot to fill out "Github Name"!');
+      return false;
+    }
+    return true;
+  };
 
+  $("form").submit(function(e) {
     e.preventDefault();
+    if (isValidForm()) {
+      populateGithubInfo(githubName);
+    }
   });
 
   $("#name").focus();
